@@ -1,0 +1,94 @@
+/*
+* @Author: rccoder
+* @Date:   2015-07-22 16:14:54
+* @Last Modified by:   rccoder
+* @Last Modified time: 2015-07-22 17:41:41
+*/
+.type {
+    width:240px;
+    background-color: #191818;
+    position: absolute;
+    z-index: 9;
+    line-height: 2px;
+    height: 100%;
+    color: #686667;
+}
+
+.typeName h2 {
+    color: #686667;
+    text-align: center;
+    padding-top: 60px;
+    font-size: 36px;
+}
+.trueType {
+    margin-top: 70px;
+    padding: 2px;
+    height: 100%;
+    line-height: 30px;
+}
+.trueType ul {
+    margin-left: -10px;
+}
+.deleteType {
+    bottom: 0;
+    position: absolute;
+    padding-bottom: 30px;
+    padding-left: 180px;
+    color: #686667;
+}
+.abstract {
+    width: 260px;
+    left: 240px;
+    position: absolute;
+    color: #CBCAC9;
+    background-color: #FFF;
+    height: 100%;
+    border-left: 20px solid #EEE;
+    border-right: 10px solid #EEE;
+    padding: 0 10px 0 10px;
+}
+.abstract .abstractName h3{
+    text-indent: 1em;
+    margin-top: 55px;
+    font-size: 30px;
+}
+.abstract .newNote i {
+    position: relative;
+    left: 150px;
+}
+.allAbstractContent ul {
+    margin-left: -38px;
+    font-size: 14px;
+    color: #5D5F67;
+}
+.allAbstractContent ul li {
+    background-color: #F6F6F6;
+    margin-bottom: 20px;
+    padding: 10px;
+    height: 126px;
+    overflow: hidden;
+}
+.content{
+    position: absolute;
+    left: 550px;
+    height: 100%;
+    right: 0;
+    background-color: #FFF;
+}
+.contentTitle {
+    background-color: #DA3610;
+    height: 180px;
+    line-height: 180px;
+    text-indent: 2em;
+    margin-top: -36px;
+    overflow: hidden;
+}
+.contentTitleFont h3 {
+    font-size: 34px;
+}
+.contentTrue {
+    padding: 12px;
+    height: 100%;
+    position: absolute;
+    height: 500px;
+}
