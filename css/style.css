@@ -2,7 +2,7 @@
 * @Author: rccoder
 * @Date:   2015-07-22 16:14:54
 * @Last Modified by:   rccoder
-* @Last Modified time: 2015-07-22 17:41:41
+* @Last Modified time: 2015-07-23 19:53:50
 */
 .type {
     width:240px;
@@ -67,6 +67,7 @@
     padding: 10px;
     height: 126px;
     overflow: hidden;
+    padding-top: 0px;
 }
 .content{
     position: absolute;
@@ -88,7 +89,5 @@
 }
 .contentTrue {
     padding: 12px;
-    height: 100%;
     position: absolute;
-    height: 500px;
 }
