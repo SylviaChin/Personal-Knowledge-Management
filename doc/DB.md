@@ -14,12 +14,12 @@ content
 trueType
 
 --------------------------------
-id     |     name      |  pid
+id     |     name      |  child()
 
 
 contents
 
 ---------------------------------------------------
-id     |      name     | content     | date    | pid
+id     |      name     | content     | date    |    pid
 ```
 比较简单，后期考虑子目录的实现，时间充足的话进行重构
