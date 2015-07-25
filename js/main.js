@@ -46,7 +46,9 @@ function showType() {
 
 }
 
+function showContent() {
 
+}
 
 /*
  * 点击增加分类
@@ -121,6 +123,14 @@ function saveContent(title, content) {
         newContent.pid = 0;
         conentTmp.push(newContent);
         localStorage.contents = JSON.stringify(conentTmp);
+        $(".contentTitleFont input").css("display", "none");
+        $(".contentTrue textarea").css("display", "none");
+        $('.saveContent').css("display", "none");
+        $('.deleteContent').css("display", "none");
+        var newTitle = "<h3>" + title + "</h3>"
+        $(".contentTitleFont").append(newTitle);
+        var newContent = marked(content);
+        $(".contentTrue").append(newContent);
+        $(".editContent").css("display", "block");
     }
-
 }

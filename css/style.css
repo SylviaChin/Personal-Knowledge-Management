@@ -2,7 +2,7 @@
 * @Author: rccoder
 * @Date:   2015-07-22 16:14:54
 * @Last Modified by:   rccoder
-* @Last Modified time: 2015-07-25 20:22:19
+* @Last Modified time: 2015-07-25 20:48:22
 */
 .type {
     width:240px;
@@ -105,11 +105,7 @@ textarea {
     width: 700px;
     height: 500px;
 }
-.saveContent {
-    display: none;
-    float: right;
-}
-.deleteContent {
+.saveContent, .deleteContent, .editContent {
     display: none;
     float: right;
 }
