@@ -55,6 +55,9 @@ function addContent(contenObj) {
 
 }
 
+/*
+ *点击保存
+ */
 function saveContent() {
     addClickEvent($(".save"), function() {
         console.log('save');
@@ -76,7 +79,12 @@ function saveContent() {
             contentObj.date = date;
             contentObj.content = content;
 
-            if(currentTrueType)
+            if(currentTrueType === "AllType") {
+                contentObj.pid = 0;
+            } else {
+                contentObj.pid = currentTrueTypeId;
+            }
+            console.log(contentObj);
         }
     })
 }
