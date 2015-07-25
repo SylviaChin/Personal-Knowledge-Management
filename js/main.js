@@ -1,5 +1,5 @@
-var currentTypeId = 0;      //当前笔记本ID
-var currentContentId = -1;  //当前内容ID
+var currentTypeId = 0; //当前笔记本ID
+var currentContentId = -1; //当前内容ID
 
 init();
 
@@ -38,7 +38,7 @@ function initDb() {
  */
 function showType() {
     var type = JSON.parse(localStorage.trueType);
-    for(var i = 0; i < type.length; i++) {
+    for (var i = 0; i < type.length; i++) {
         var typeName = type[i].name;
         var liTmp = '<li>' + typeName + '</li>';
         $(".trueType>ul").append(liTmp);
@@ -46,39 +46,7 @@ function showType() {
 
 }
 
-/*
- *点击保存
- */
-function saveContent() {
-    addClickEvent($(".save"), function() {
-        console.log('save');
-        console.log(currentTrueType);
-        console.log(currentContent);
 
-        var title = $('').val();
-        var content = $('').val();
-        var date = $('').val();
-        if (title === '') {
-            alert('The Title is Empty!');
-        } else if (content === '') {
-            alert('The content is Empty');
-        } else if (date === '') {
-            alert('The date is Empty');
-        } else {
-            var contentObj = {};
-            contentObj.name = title;
-            contentObj.date = date;
-            contentObj.content = content;
-
-            if (currentTrueType === "AllType") {
-                contentObj.pid = 0;
-            } else {
-                contentObj.pid = currentTrueTypeId;
-            }
-            console.log(contentObj);
-        }
-    })
-}
 
 /*
  * 点击增加分类
@@ -86,7 +54,7 @@ function saveContent() {
 function clickAddType() {
     console.log('I am click AddType');
     $(".trueType>ul").append('<li><input type="text" /></li>');
-    $(".addType").css("display","none");
+    $(".addType").css("display", "none");
     $(".saveType").css("display", "block");
 }
 
@@ -114,12 +82,45 @@ function addType(name) {
     //更新Type
     var newType = '<li>' + name + '</li>';
     $(".trueType>ul>li>input[type='text']").css('display', 'none');
-    $(".addType").css("display","block");
+    $(".addType").css("display", "block");
     $(".saveType").css("display", "none");
     $(".trueType>ul").append(newType);
 }
 
+/*
+ * 新建笔记内容
+ */
 function clickNewNote() {
     $(".contentTitleFont").html('<input type="text" />');
     $(".contentTrue").html('<textarea name="" id=""></textarea>');
+    $('.saveContent').css("display", "block");
+    $('.deleteContent').css("display", "block");
+}
+
+/*
+ * 保存笔记内容
+ */
+function clickSaveContent() {
+    var title = $(".contentTitleFont input").val();
+    var content = $(".contentTrue textarea").val();
+    saveContent(title, content);
+}
+
+function saveContent(title, content) {
+    console.log('save');
+    if (title === '') {
+        alert('The Title is Empty!');
+    } else if (content === '') {
+        alert('The content is Empty');
+    } else {
+        var newContent = {};
+        var conentTmp = JSON.parse(localStorage.contents);
+        newContent.id = conentTmp[conentTmp.length -1].id + 1;
+        newContent.name = title;
+        newContent.content = content;
+        newContent.pid = 0;
+        conentTmp.push(newContent);
+        localStorage.contents = JSON.stringify(conentTmp);
+    }
+
 }
