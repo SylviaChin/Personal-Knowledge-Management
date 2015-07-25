@@ -2,7 +2,7 @@
 * @Author: rccoder
 * @Date:   2015-07-22 16:14:54
 * @Last Modified by:   rccoder
-* @Last Modified time: 2015-07-25 17:46:04
+* @Last Modified time: 2015-07-25 19:04:56
 */
 .type {
     width:240px;
@@ -100,4 +100,8 @@
 .contentTrue {
     padding: 12px;
     position: absolute;
+}
+textarea {
+    width: 700px;
+    height: 500px;
 }

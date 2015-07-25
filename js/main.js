@@ -45,17 +45,6 @@ function showType() {
     }
 
 }
-/*
- *查询分类
- */
-function queryTrueType() {
-    return JSON.parse(localStorage.trueType);
-}
-
-
-function addContent(contenObj) {
-
-}
 
 /*
  *点击保存
@@ -128,4 +117,9 @@ function addType(name) {
     $(".addType").css("display","block");
     $(".saveType").css("display", "none");
     $(".trueType>ul").append(newType);
+}
+
+function clickNewNote() {
+    $(".contentTitleFont").html('<input type="text" />');
+    $(".contentTrue").html('<textarea name="" id=""></textarea>');
 }
