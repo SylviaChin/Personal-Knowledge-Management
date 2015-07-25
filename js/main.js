@@ -1,5 +1,5 @@
-var trueTypeId = 0;
-var contentId = -1;
+var currentTypeId = 0;      //当前笔记本ID
+var currentContentId = -1;  //当前内容ID
 
 init();
 
@@ -10,6 +10,9 @@ function init() {
 
 }
 
+/*
+ * 初始化本地储存的内容
+ */
 function initDb() {
     if (!localStorage.trueType || !localStorage.contents) {
         var trueTypeJson = [{
@@ -37,7 +40,7 @@ function queryTrueType() {
 }
 
 function addTrueType(name) {
-    if(!name) {
+    if (!name) {
         alert('Name is Undefined!');
     } else {
         var trueTypeTemp = JSON.parse(localStorage.trueType);
@@ -67,11 +70,11 @@ function saveContent() {
         var title = $('').val();
         var content = $('').val();
         var date = $('').val();
-        if(title === '') {
+        if (title === '') {
             alert('The Title is Empty!');
-        } else if(content === '') {
+        } else if (content === '') {
             alert('The content is Empty');
-        } else if(date === '') {
+        } else if (date === '') {
             alert('The date is Empty');
         } else {
             var contentObj = {};
@@ -79,7 +82,7 @@ function saveContent() {
             contentObj.date = date;
             contentObj.content = content;
 
-            if(currentTrueType === "AllType") {
+            if (currentTrueType === "AllType") {
                 contentObj.pid = 0;
             } else {
                 contentObj.pid = currentTrueTypeId;
@@ -87,4 +90,22 @@ function saveContent() {
             console.log(contentObj);
         }
     })
+}
+
+/*
+ * 点击增加分类
+ */
+function clickAddType() {
+    console.log('I am click AddType');
+    $(".trueType>ul").append('<li><input type="text" /></li>');
+    $(".addType").css("display","none");
+    $(".saveType").css("display", "block");
+}
+
+/*
+ * 保存分类
+ */
+function clickSaveType() {
+    console.log('I am save Type');
+    var type = $(".trueType>ul>li>input[type='text']").val();
 }

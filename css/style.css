@@ -2,7 +2,7 @@
 * @Author: rccoder
 * @Date:   2015-07-22 16:14:54
 * @Last Modified by:   rccoder
-* @Last Modified time: 2015-07-25 17:20:14
+* @Last Modified time: 2015-07-25 17:46:04
 */
 .type {
     width:240px;
@@ -35,6 +35,9 @@
     padding-bottom: 30px;
     padding-left: 10px;
     color: #686667;
+}
+.saveType {
+    display: none;
 }
 .deleteType {
     bottom: 0;
