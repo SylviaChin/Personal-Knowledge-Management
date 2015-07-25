@@ -5,6 +5,7 @@ init();
 
 function init() {
     initDb();
+    showType();
     //initType();
     //initModel();
 
@@ -33,26 +34,24 @@ function initDb() {
 }
 
 /*
+ * 进入页面的时候展示Type
+ */
+function showType() {
+    var type = JSON.parse(localStorage.trueType);
+    for(var i = 0; i < type.length; i++) {
+        var typeName = type[i].name;
+        var liTmp = '<li>' + typeName + '</li>';
+        $(".trueType>ul").append(liTmp);
+    }
+
+}
+/*
  *查询分类
  */
 function queryTrueType() {
     return JSON.parse(localStorage.trueType);
 }
 
-function addTrueType(name) {
-    if (!name) {
-        alert('Name is Undefined!');
-    } else {
-        var trueTypeTemp = JSON.parse(localStorage.trueType);
-        var newTrueType = {};
-        newTrueType.id = trueTypeTemp[trueTypeTemp.length - 1].id + 1;
-        newTrueType.name = name;
-        newTrueType.child = [];
-        trueTypeTemp.push(newTrueType);
-        localStorage.trueType = JSOn.stringify(trueTypeTemp);
-
-    }
-}
 
 function addContent(contenObj) {
 
@@ -107,5 +106,26 @@ function clickAddType() {
  */
 function clickSaveType() {
     console.log('I am save Type');
-    var type = $(".trueType>ul>li>input[type='text']").val();
+    var name = $(".trueType>ul>li>input[type='text']").val();
+    addType(name);
+}
+
+function addType(name) {
+    if (!name) {
+        alert('Name is Undefined!');
+    } else {
+        var trueTypeTemp = JSON.parse(localStorage.trueType);
+        var newTrueType = {};
+        newTrueType.id = trueTypeTemp[trueTypeTemp.length - 1].id + 1; //最后一个的ID + 1
+        newTrueType.name = name;
+        newTrueType.child = [];
+        trueTypeTemp.push(newTrueType);
+        localStorage.trueType = JSON.stringify(trueTypeTemp);
+    }
+    //更新Type
+    var newType = '<li>' + name + '</li>';
+    $(".trueType>ul>li>input[type='text']").css('display', 'none');
+    $(".addType").css("display","block");
+    $(".saveType").css("display", "none");
+    $(".trueType>ul").append(newType);
 }
